@@ -1,0 +1,121 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.js"
+      ],
+      "parserOptions": {
+        "ecmaVersion": "latest",
+        "project": [
+          "tsconfig.json",
+          "e2e/tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@typescript-eslint/explicit-member-accessibility": "off",
+        "max-len": [
+          "error",
+          {
+            "code": 140,
+            "ignoreComments": false,
+            "ignoreTrailingComments": false,
+            "ignoreUrls": false,
+            "ignoreStrings": false,
+            "ignoreTemplateLiterals": false,
+            "ignoreRegExpLiterals": true
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "prefix": "vct",
+            "style": "kebab-case",
+            "type": "element"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "prefix": "vct",
+            "style": "camelCase",
+            "type": "attribute"
+          }
+        ]
+      },
+      "overrides": [
+        {
+          "files": [
+            "*.ts"
+          ],
+          "rules": {
+            "@typescript-eslint/explicit-member-accessibility": [
+              "warn",
+              {
+                "accessibility": "explicit",
+                "overrides": {
+                  "accessors": "explicit",
+                  "constructors": "off",
+                  "methods": "explicit",
+                  "properties": "explicit",
+                  "parameterProperties": "explicit"
+                },
+                "ignoredMethodNames": [
+                  "ngOnInit",
+                  "ngOnDestroy",
+                  "ngOnChanges",
+                  "ngDoCheck",
+                  "ngAfterContentInit",
+                  "ngAfterContentChecked",
+                  "ngAfterViewInit",
+                  "ngAfterViewChecked",
+                  "writeValue",
+                  "registerOnChange",
+                  "registerOnTouched",
+                  "setDisabledState"
+                ]
+              }
+            ],
+            "@typescript-eslint/explicit-function-return-type": [
+              "warn",
+              {
+                "allowExpressions": true,
+                "allowTypedFunctionExpressions": true,
+                "allowedNames": [
+                  "ngOnInit",
+                  "ngOnDestroy",
+                  "ngOnChanges",
+                  "ngDoCheck",
+                  "ngAfterContentInit",
+                  "ngAfterContentChecked",
+                  "ngAfterViewInit",
+                  "ngAfterViewChecked"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {
+        "@angular-eslint/template/eqeqeq": "off"
+    }
+    }
+  ]
+}
