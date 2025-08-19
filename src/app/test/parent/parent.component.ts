@@ -24,12 +24,13 @@ import
     imports: [ CommonModule ],
     templateUrl: './parent.component.html',
     styleUrl: './parent.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.Default
 } )
 export class ParentComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy
 {
 
     public title = 'parent';
+    public user = { name: 'Dima', age: 23 };
     public timer: WritableSignal<number> = signal( 0 );
 
     constructor(
@@ -38,74 +39,57 @@ export class ParentComponent implements OnChanges, OnInit, DoCheck, AfterContent
         private ngZone: NgZone
     )
     {
+        console.log( 'Parent.constructor' );
         this.ngZone.runOutsideAngular( () =>
         {
-            setTimeout( () =>
-            {
-                this.title = 'parent really';
-                console.log( 'Title changed outside Angular' );
-            }, 3000 );
+            setTimeout( () => this.user.age = 77, 3000 );
         } );
-        setInterval( () =>
-        {
-            this.timer.set( this.timer() + 1 );
-        }, 1000 );
     }
 
     ngOnChanges( changes: SimpleChanges )
     {
-        console.log( 'ngOnChanges', changes );
+        console.log( 'Parent.ngOnChanges' );
     }
 
     ngOnInit()
     {
-        console.log( 'ngOnInit' );
+        console.log( 'Parent.ngOnInit' );
     }
 
     ngDoCheck()
     {
-        console.log( 'ngDoCheck' );
+        console.log( 'Parent.ngDoCheck' );
     }
 
     ngAfterContentInit()
     {
-        console.log( 'ngAfterContentInit' );
+        // console.log( 'ngAfterContentInit' );
     }
 
     ngAfterContentChecked()
     {
-        console.log( 'ngAfterContentChecked' );
+        // console.log( 'ngAfterContentChecked' );
     }
 
     ngAfterViewInit()
     {
-        console.log( 'ngAfterViewInit' );
+        // console.log( 'ngAfterViewInit' );
     }
 
     ngAfterViewChecked()
     {
-        console.log( 'ngAfterViewChecked' );
+        // console.log( 'ngAfterViewChecked' );
     }
 
     ngOnDestroy()
     {
-        console.log( 'ngOnDestroy' );
+        console.log( 'Parent.ngOnDestroy' );
     }
 
-    private changeTitle(): void
+    public getName(): string
     {
-        this.title = 'title chnageeeed';
-    }
-
-    public onBtnClick(): void
-    {
-
-    }
-
-    public getTitle(): string
-    {
-        console.log( 'getTitle()' );
-        return 'Title from function';
+        console.log( 'Parent.getName' );
+        return 'Misha';
     }
 
 }
