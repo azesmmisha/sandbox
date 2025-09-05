@@ -1,5 +1,13 @@
 <div class="wrapper">
     <p>blue parent works!</p>
+    <p>title: {{title}}</p>
     <p>{{getName()}}</p>
     <p>{{user.name}} {{user.age}}</p>
+    <p>
+        <button class="btn" (click)="onClick()">click me</button>
+    </p>
+    <div class="fx-flex">
+        <app-child></app-child>
+        <app-child></app-child>
+    </div>
 </div>
