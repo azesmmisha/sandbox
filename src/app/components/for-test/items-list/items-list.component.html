@@ -1,0 +1,8 @@
+<div class="items-list-container">
+  <div class="header">
+    <h2>Fruits List</h2>
+    <button class="change-color-btn" (click)="change()"> Change </button>
+  </div>
+  <app-item-list *ngFor="let fruit of fruits; trackBy: trackById" [item]="fruit">
+  </app-item-list>
+</div>

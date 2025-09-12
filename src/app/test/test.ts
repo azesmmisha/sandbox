@@ -1,5 +1,6 @@
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { ApplicationRef, ChangeDetectorRef, Component, DoCheck, NgZone, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { ItemsListComponent } from "../components/for-test/items-list/items-list.component";
 import { ParentComponent } from "./parent/parent.component";
 
 class User
@@ -8,9 +9,13 @@ class User
     lastName: string = '';
 }
 
+const IMPORTS = [
+    ItemsListComponent, AsyncPipe, CommonModule, ParentComponent, ItemsListComponent
+];
+
 @Component( {
     selector: 'app-test',
-    imports: [ AsyncPipe, CommonModule, ParentComponent ],
+    imports: IMPORTS,
     templateUrl: './test.html',
     styleUrl: './test.scss',
 } )

@@ -1,0 +1,14 @@
+<div class="item-container">
+  <span class="item-id">#{{'0' + item.id}}</span>
+  <strong class="item-name">{{ item.fruit }}</strong>
+  <span class="item-color">
+    <span class="color-dot" [style.background]="item.color.toLowerCase()"></span>
+    {{ item.color }}
+  </span>
+  <span class="item-amount">{{ item.amount }} pcs</span>
+  <span class="vitamins-container">
+    <span *ngFor="let vitamin of item.vitamins" class="vitamin-badge">
+      V{{ vitamin }}
+    </span>
+  </span>
+</div>

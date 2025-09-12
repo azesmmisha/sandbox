@@ -1,0 +1,58 @@
+.item-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #f8f9fa 0%, #ffffff 100%);
+
+  .item-id {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .item-icon {
+    font-size: 18px;
+  }
+
+  .item-name {
+    color: #4a5568;
+    min-width: 80px;
+  }
+
+  .item-color {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    .color-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+    }
+  }
+
+  .item-amount {
+    background: #e2e8f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .vitamins-container {
+    margin-left: auto;
+    display: flex;
+    gap: 5px;
+
+    .vitamin-badge {
+      background: #ffd700;
+      color: #333;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+}
